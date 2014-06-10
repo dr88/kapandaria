@@ -1,0 +1,34 @@
+
+<div class = "center">
+  <h2>My Sales</h2>
+</div>
+
+<% if (user_signed_in?) %>
+  <%= link_to 'Add New Listing', new_listing_path, class: "btn btn-primary pull-right", data:{no_turbolink: true} %>
+  <br><br>
+<% end %>
+
+<table class = "table table-striped table-hover">
+  <tr>
+    <th class="left">Image</th>
+    <th class="left">Item</th>
+    <th class="left">Price</th>
+    <th class="left">Customer</th>
+    <th class="left">Date Sold</th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= image_tag order.listing.image.url(:thumb) %></td>  
+    <td><%= order.listing.name %></td>
+    <td><%= number_to_currency(order.listing.price) %></td>
+    <td><%= order.buyer.name %></td>
+    <td><%= relative_time(order.created_at) %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+
+

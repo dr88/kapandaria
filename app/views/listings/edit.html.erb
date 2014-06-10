@@ -1,0 +1,15 @@
+<h1>Editing listing</h1>
+
+<div class = "col-md-4">
+	<div class="thumbnail">
+		<%= image_tag @listing.image.url %>
+	</div>
+</div>
+
+<div class = "col-md-8">
+<%= render 'form' %>
+
+<%= link_to 'Show', @listing, class: "btn btn-link" %> |
+<%= link_to 'Back', listings_path, class: "btn btn-link" %>
+
+</div>

@@ -1,0 +1,78 @@
+@import "bootstrap";
+
+.jumbotron {
+	padding-left: 0px !important;
+	padding-top: 3px;
+	padding-bottom: 3px;
+    margin-bottom:15px;
+    background-repeat:no-repeat;
+    h1, h2 {
+    	font-family:guardian-egyptt, georgia, serif;
+    }
+}
+
+
+
+body {
+	background-color:#F5F5F1;
+	color: #333333;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.navbar-default {
+	background-color:#EFEFEB;
+}
+
+.navbar-default .navbar-brand { 
+	font-family: guardian-egyptt, georgia, serif;
+	font-weight: 400;
+	color: #D5641C;
+	font-size: 30px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #019285;
+	font-size: 14px;	
+}
+
+.center {
+	text-align: center;
+}
+
+.col-md-3:nth-child(4n+1) {
+	clear: left;
+}
+
+.col-md-4 {
+	h3 {font-size: 36px;}
+	h5 {font-size: 22px;}
+	p {font-size: 18px;}		
+}
+
+.caption {
+	h3 {
+		font-size: 22px;
+		margin: 2px;
+	}
+	p {
+		font-size: 15px;
+		margin: 0px;
+	}
+}
+
+.thumbnail {
+
+}
+
+#bar-title {
+	color: #104571;
+	font-family: guardian-egyptt, georgia, serif;
+	font-size: 24px;
+}
+
+#srch-box {
+	width: 400px;
+	font-size: 20px;
+}
