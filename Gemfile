@@ -29,7 +29,8 @@ gem "paperclip-dropbox", ">= 1.1.7"
 gem "figaro"
 gem "devise"
 gem 'stripe' 	# Payment gateway
-gem 'less-rails', '~> 2.5.0' #support for less, for the multi-select jquery plugin
+#gem 'less', '~> 2.6.0' #support for less, for the multi-select jquery plugin ----- commented out on 6/9/14
+#gem 'therubyracer-0.11.0beta1-x86-mingw32' ----- commented out on 6/9/14
 
 group :production do 
 	gem 'pg'

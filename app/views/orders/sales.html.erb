@@ -13,6 +13,7 @@
     <th class="left">Image</th>
     <th class="left">Item</th>
     <th class="left">Price</th>
+    <th class="left">Qty</th>
     <th class="left">Customer</th>
     <th class="left">Date Sold</th>
   </tr>
@@ -22,7 +23,8 @@
     <td><%= image_tag order.listing.image.url(:thumb) %></td>  
     <td><%= order.listing.name %></td>
     <td><%= number_to_currency(order.listing.price) %></td>
-    <td><%= order.buyer.name %></td>
+    <td><%= order.qty %></td>
+    <td><%= order.buyer.name %></td>    
     <td><%= relative_time(order.created_at) %></td>
   </tr>
 <% end %>

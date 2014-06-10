@@ -27,6 +27,17 @@
 
 
       <div class="form-group">
+        <%= f.label :qty, "Quantity" %>
+        <%= f.text_field :qty, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :instructions, "Special Instructions" %>
+        <%= f.text_field :instructions, class: "form-control" %>
+      </div>      
+      <div class="form-group">
+      <br><br><br>
+      </div>
+      <div class="form-group">
         <%= f.label :address %>
         <%= f.text_field :address, class: "form-control" %>
       </div>
