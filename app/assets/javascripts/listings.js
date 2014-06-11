@@ -1,7 +1,4 @@
-
-
-
-$(document).ready(function() {
+function ready() {
 
 	// Dynamic search of listings
 	$("section.sieve").sieve({ itemSelector: ".thumbnail" });	
@@ -19,7 +16,12 @@ $(document).ready(function() {
 
 	// Moving the search box
 	el = $('form[role=\'search\']')[0];
-	$('form[role=\'search\']')[0].remove();
-	$(el).appendTo('.navbar-search');
+	if (el) {
+		$('form[role=\'search\']')[0].remove();
+		$(el).appendTo('.navbar-search');
+	}
 
-});
+};
+
+$(document).ready(ready);
+$(document).on("page:load", ready);
