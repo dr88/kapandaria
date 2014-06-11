@@ -17,5 +17,9 @@ $(document).ready(function() {
 	// Multiselect for locations
 	$('.multiselect').multiselect();
 
+	// Moving the search box
+	el = $('form[role=\'search\']')[0];
+	$('form[role=\'search\']')[0].remove();
+	$(el).appendTo('.navbar-search');
 
 });
