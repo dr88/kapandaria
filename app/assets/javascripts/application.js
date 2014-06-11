@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require listings
+//= require orders
 //= require jquery.sieve
 //= require_tree .
 
