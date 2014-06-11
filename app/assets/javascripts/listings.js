@@ -1,7 +1,7 @@
 function ready() {
 
 	// Dynamic search of listings
-	$("section.sieve").sieve({ itemSelector: ".thumbnail" });	
+	$("section.sieve").sieve({ itemSelector: "div.col-md-3" });	
 	
 	// Change background of listings when hovering
 	$('.thumbnail').hover(
