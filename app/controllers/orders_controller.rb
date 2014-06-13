@@ -29,6 +29,10 @@ class OrdersController < ApplicationController
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
 
+    @order.qty = 1 if @order.qty.nil?
+    @order.qty = 1 if @order.qty < 1
+    @order.qty = 20 if @order.qty > 20
+
     Stripe.api_key = ENV["STRIPE_API_KEY"]
     token = params[:stripeToken]
 

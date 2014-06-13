@@ -3,8 +3,10 @@
     <div class="thumbnail">
       <%= image_tag @listing.image.url %>
     </div>
-    <h3><%= @listing.name %></h3>
-    <h4><%= number_to_currency(@listing.price) %></h4>
+    <div id="price-name-wide">
+      <h3><%= @listing.name %></h3>
+      <h4><%= number_to_currency(@listing.price) %></h4>
+    </div>
   </div>
   <div class = "col-md-8">
     <%= form_for([@listing,@order]) do |f| %>
@@ -25,10 +27,15 @@
         <noscript>JavaScript is not enabled and is required for this form. First enable it in your browser settings.</noscript>
       </div>
 
-
       <div class="form-group">
-        <%= f.label :qty, "Quantity" %>
-        <%= f.text_field :qty,  class: "form-control"%>
+        <div id="price-name-narrow" style="display: inline-block">
+          <h1><%= @listing.name %></h1>
+          <h4><%= number_to_currency(@listing.price) %></h4>
+        </div>
+        <div id="qty-group" style="display: inline-block">
+          <%= f.label :qty, "Quantity" %>
+          <%= f.number_field :qty, in: 1..20, value: 1, class: "form-control"%>
+        </div>
       </div>
       <div class="form-group">
         <%= f.label :instructions, "Special Instructions" %>
