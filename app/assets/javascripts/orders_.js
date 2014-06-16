@@ -14,13 +14,15 @@ replaceLabel = function () {
   }
 };
 
-window.addEventListener('resize', replaceLabel);
-
-$(document).ready(function() {
+function ordersReady() {
   replaceLabel();
+  window.addEventListener('resize', replaceLabel);
 
   $("#order_qty").on("blur", function() {
     if (Number(this.value) < 1)  this.value = '1';
     if (Number(this.value) > 20) this.value = '20';
   });
-});
+}
+
+$(document).ready(ordersReady);
+$(document).on("page:load", ordersReady);

@@ -1,5 +1,4 @@
-function ready() {
-
+function listingsReady() {
 	// Dynamic search of listings
 	$("section.sieve").sieve({ itemSelector: "div.col-md-3" });	
 	
@@ -25,17 +24,14 @@ function ready() {
 		return true;
 	});
 
-	// Multiselect for locations
-	$('.multiselect').multiselect();
-
 	// Moving the search box
 	el = $('form[role=\'search\']')[0];
 	if (el) {
 		$('form[role=\'search\']')[0].remove();
-		$(el).appendTo('.navbar-search');
+			$(el).appendTo('.navbar-search');  
 	}
 
 };
 
-$(document).ready(ready);
-$(document).on("page:load", ready);
+$(document).ready(listingsReady);
+$(document).on("page:load", listingsReady);

@@ -1,4 +1,4 @@
-function ready() {
+function deviseReady() {
   if ($("input#user_name")[0]) {
     if ($("input#user_name").val() != '') {
       full_name = $("input#user_name").val().split(' ');
@@ -24,5 +24,5 @@ function ready() {
   });
 }
 
-$(document).ready(ready);
-$(document).on("page:load", ready);
+$(document).ready(deviseReady);
+$(document).on("page:load", deviseReady);
