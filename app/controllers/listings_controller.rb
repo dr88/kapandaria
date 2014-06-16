@@ -44,6 +44,7 @@ class ListingsController < ApplicationController
       token = params[:stripeToken]    
       recipient = Stripe::Recipient.create(
         :name => current_user.name,
+        :email => current_user.email,
         :type => "individual",
         :bank_account => token
       )
