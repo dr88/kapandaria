@@ -1,8 +1,10 @@
 function ready() {
-  if($("input#user_name").val() != '') {
-    full_name = $("input#user_name").val().split(' ');
-    $("#first_name").val(full_name.slice(0, -1));
-    $("#last_name").val(full_name.pop());
+  if ($("input#user_name")[0]) {
+    if ($("input#user_name").val() != '') {
+      full_name = $("input#user_name").val().split(' ');
+      $("#first_name").val(full_name.slice(0, -1));
+      $("#last_name").val(full_name.pop());
+    }
   }
 
   $("form#new_user").on("submit", function() {
