@@ -11,6 +11,20 @@ function ready() {
 	            $(this).css('background-color', '#FFFFFF');}
 	);
 
+	el = $("#form-field-tags");
+	if (el.length) {
+		el.tag({
+			placeholder: "Enter new locations ...",
+			source: window.locations
+		});
+	}
+
+	$(".edit_listing, .new_listing").submit(function() {
+		el = $("#form-field-tags");
+		el[0].value = el.val().split(', ');
+		return true;
+	});
+
 	// Multiselect for locations
 	$('.multiselect').multiselect();
 

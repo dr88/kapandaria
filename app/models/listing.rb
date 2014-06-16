@@ -16,4 +16,8 @@ class Listing < ActiveRecord::Base
 	belongs_to :user
 	has_many :orders
 	has_and_belongs_to_many :locations
+
+	def location_names
+		locations.map(&:name)
+	end
 end
