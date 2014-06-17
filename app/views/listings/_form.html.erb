@@ -39,6 +39,9 @@
   <div class="form-group">
     <%= f.text_field :location_names, name: "listing[location_names]", id: "form-field-tags", value: @listing.location_names.join(',') %>
   </div>
+  <div class="form-group">
+    <%= f.check_box :women_only %> <%= f.label :women_only, "For women only?" %>
+  </div>
   
   <% if current_user.recipient.blank? %>
     <h1>Bank Account Information</h1>
