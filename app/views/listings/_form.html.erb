@@ -37,6 +37,7 @@
     <%= f.file_field :image,  class: "form-control"%>
   </div>
   <div class="form-group">
+    <%= f.label :locations %><br>
     <%= f.text_field :location_names, name: "listing[location_names]", id: "form-field-tags", value: @listing.location_names.join(',') %>
   </div>
   <div class="form-group">
