@@ -13,9 +13,10 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-//= require listings
-//= require orders
+//= require bootstrap-tag.min
+//= require devise
+//= require orders_
+//= require listings_
 //= require jquery.sieve
 //= require_tree .
 

@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:seller, :new, :create, :edit, :udpate, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
+  before_filter :set_location_ids, only: [:create, :update]
 
   def seller
     @listings = Listing.where(user: current_user).order("created_at DESC")
@@ -97,7 +98,20 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :price, :image, :location_ids => [])
+      params.require(:listing).permit(:name, :description, :price, :image, :women_only, :location_ids => [])
+    end
+
+    def set_location_ids
+      location_names = params[:listing][:location_names].split(',')
+      existing_locations = Location.where(name: location_names).pluck(:id, :name)
+
+      location_ids = existing_locations.map(&:first)
+
+      (location_names - existing_locations.map(&:last)).each do |location_name|
+        location_ids << Location.create(name: location_name).id
+      end
+
+      params[:listing][:location_ids] = location_ids
     end
 
     def check_user
