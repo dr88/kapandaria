@@ -21,6 +21,19 @@ body {
 
 .navbar-default {
 	background-color:#EFEFEB;
+  overflow: hidden;
+	max-height: 52px;
+  -webkit-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  -o-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+div[role='advanced-search'] {
+	margin-bottom: 4px;
+	.form-group {
+		width: 100%;
+  }
 }
 
 .navbar-default .navbar-brand { 
@@ -35,6 +48,10 @@ body {
 	font-weight: bold;
 	color: #019285;
 	font-size: 14px;	
+}
+
+.container-fluid:after {
+	margin: 8px;
 }
 
 .center {
@@ -72,7 +89,7 @@ body {
 	font-size: 24px;
 }
 
-#srch-box {
+#search-box {
 	width: 350px;
 	font-size: 20px;
 }

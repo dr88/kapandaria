@@ -5,22 +5,31 @@
 
     <div class="col-md-6 pull-left">
       <p id="bar-title">The Spring Valley Marketplace</p>
-    </div>    
-    
-<!--
-    <div class="pull-right">
-      <form class="navbar-form" role="search">
-        <div class="input-group">
-          <input type='text' class="form-control" placeholder="Search" name="srch-box" id="srch-box">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-          </div>
-        </div>
-      </form>
     </div>
--->
     
+  </div>
 
+</div>
+
+<div class="navbar-form" role="search">
+  <div class="input-group">
+    <%= text_field_tag "search-box", params['search'] || '', class: "form-control", placeholder: "Search" %>
+    <div class="input-group-btn">
+      <button id="show-advanced-search" class="btn btn-default" type="button"><i class="glyphicon glyphicon-chevron-down"></i></button>
+    </div>
+  </div>
+</div>
+<div class="navbar-form" role="advanced-search">
+  <div class="col-md-6"></div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= text_field_tag 'location_names', nil, id: "form-field-tags" %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <%= check_box_tag 'women_only' %> <%= label_tag "Show women only?" %>
+    </div>
   </div>
 </div>
 
