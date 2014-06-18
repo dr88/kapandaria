@@ -11,7 +11,7 @@ class Listing < ActiveRecord::Base
 	do_not_validate_attachment_file_type :image
 	validates :name, :description, :price, presence: true
 	validates :price, numericality: {greater_than: 0}
-	validates_attachment_presence :image
+	# validates_attachment_presence :image
 
 	belongs_to :user
 	has_many :orders
@@ -19,5 +19,17 @@ class Listing < ActiveRecord::Base
 
 	def location_names
 		locations.map(&:name)
+	end
+
+	def self.search query
+		unless query.empty?
+			listings = all
+			listings = listings.where(women_only: false) unless query.has_key? :women_only
+			listings = listings.where("listings.name" => "#{query[:search]}%") unless query[:search].blank?
+			listings = listings.joins(:locations).where("locations.name" => query[:tags].downcase.split(',')) unless query[:tags].blank?
+			listings
+		else
+			where(women_only: false)
+		end
 	end
 end
