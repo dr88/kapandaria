@@ -66,11 +66,12 @@ function listingsReady() {
 	var timer;
 	function delayedSearch () {
 		clearTimeout(timer);
-		timer = setTimeout(doSearch, 1200);
+		timer = setTimeout(doSearch, 1000);
 	}
 
 	$("#search-box").on("input", delayedSearch);
-	$(".tags input[type='text']").on("input", delayedSearch);
+	$(".tags input[type='text']").on("keyup", delayedSearch);
+	$(".tags input[type='text']").on("focus", doSearch);
 	$(".tags input[type='text']").on("blur", doSearch);
 	$(document).on("click", ".tag .close", doSearch);
 	$("#women_only").on("change", doSearch);
