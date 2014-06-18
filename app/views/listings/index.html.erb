@@ -33,18 +33,6 @@
   </div>
 </div>
 
-<section id="filter-bar">
-<div class = "control group">
-  <div class="controls span2">
-    <ul class = "list-inline">
-        <% @locations.each do |location| %>
-          <li> <label class="checkbox"> <input type="checkbox" value="<%= location.id %>" id="inlineCheckbox1"> <%= location.name %> </label></li>
-        <% end %>
-    </ul>
-  </div>
-</div>
-</section>
-
 <section class="center sieve">
   <%= render "listings" %>
 </section>
