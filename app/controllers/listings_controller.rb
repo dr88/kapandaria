@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.order("created_at DESC")
+    @listings = Listing.search(params.slice(:search, :tags, :women_only)).order("created_at DESC")
     @locations = Location.all
   end
 
@@ -98,7 +98,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :price, :image, :women_only, :location_ids => [])
+      params.require(:listing).permit(:name, :description, :price, :image ,:women_only, :location_ids => [])
     end
 
     def set_location_ids
