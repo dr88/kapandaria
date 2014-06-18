@@ -25,8 +25,8 @@ class Listing < ActiveRecord::Base
 		unless query.empty?
 			listings = all
 			listings = listings.where(women_only: false) unless query.has_key? :women_only
-			listings = listings.where("listings.name" => "#{query[:search]}%") unless query[:search].blank?
-			listings = listings.joins(:locations).where("locations.name" => query[:tags].downcase.split(',')) unless query[:tags].blank?
+			listings = listings.where("LOWER(listings.name) LIKE :name", name: "#{query[:search].downcase}%") unless query[:search].blank?
+			listings = listings.joins(:locations).where("LOWER(locations.name) IN (:tags)", tags: query[:tags].downcase.split(',')) unless query[:tags].blank?
 			listings
 		else
 			where(women_only: false)
