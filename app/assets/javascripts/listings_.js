@@ -2,7 +2,7 @@ function listingsReady() {
 	// Change background of listings when hovering
 	$('.thumbnail').hover(
 		function() {
-	            $(this).css('background-color', '#BCBCBC');}, 
+	            $(this).css('background-color', '#BCBCBC');},
 	    function() {
 	            $(this).css('background-color', '#FFFFFF');}
 	);
@@ -25,13 +25,13 @@ function listingsReady() {
 	el = $('div[role=\'search\']')[0];
 	if (el) {
 		$('div[role=\'search\']')[0].remove();
-		$(el).appendTo('.navbar-search');  
+		$(el).appendTo('.navbar-search');
 	}
 	// Moving the advanced search tools
 	el = $('div[role=\'advanced-search\']')[0];
 	if (el) {
 		$('div[role=\'advanced-search\']')[0].remove();
-		$(el).appendTo('.navbar-advanced-search');  
+		$(el).appendTo('.navbar-advanced-search');
 	}
 
 	$("#show-advanced-search").on("click", function () {
@@ -49,18 +49,28 @@ function listingsReady() {
 
 
 	// Search
-	var query;
+	var query = location.search.replace( "?", "" );
 	function doSearch () {
-		console.log("search");
+		var prevQuery = query;
+
+		query = "search=" + $("#search-box").val()
+		      + "&tags=" + $("#form-field-tags").val()
+		      + ($("#women_only").is(":checked") ? "&women_only" : '');
+
+		if (query != prevQuery) {
+			uri = location.protocol + '//' + location.host + location.pathname + '?' + query;
+			$.getScript(uri);
+		}
 	}
 
 	var timer;
-	function delaySearch () {
+	function delayedSearch () {
+		clearTimeout(timer);
 		timer = setTimeout(doSearch, 1200);
 	}
 
-	$("#search-box").on("input", delaySearch);
-	$(".tags input[type='text']").on("input", delaySearch);
+	$("#search-box").on("input", delayedSearch);
+	$(".tags input[type='text']").on("input", delayedSearch);
 	$(".tags input[type='text']").on("blur", doSearch);
 	$(document).on("click", ".tag .close", doSearch);
 	$("#women_only").on("change", doSearch);
