@@ -18,5 +18,6 @@
 //= require orders_
 //= require listings_
 //= require jquery.sieve
+//= require bootstrap
 //= require_tree .
 

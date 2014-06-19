@@ -39,10 +39,12 @@ function listingsReady() {
 		if (icon.getAttribute("class") == "glyphicon glyphicon-chevron-down") {
 			// expand
 			$(".navbar-default").css("max-height", '406px');
+			$(".navbar-advanced-search").css("opacity", 1);
 			icon.setAttribute("class", "glyphicon glyphicon-chevron-up")
 		} else {
 			// shrink
 			$(".navbar-default").css("max-height", '52px');
+			$(".navbar-advanced-search").css("opacity", 0);
 			icon.setAttribute("class", "glyphicon glyphicon-chevron-down")
 		}
 	});

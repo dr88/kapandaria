@@ -21,12 +21,19 @@ body {
 
 .navbar-default {
 	background-color:#EFEFEB;
-  overflow: hidden;
 	max-height: 52px;
   -webkit-transition: all .5s linear;
   -moz-transition: all .5s linear;
   -o-transition: all .5s linear;
   transition: all .5s linear;
+}
+
+.navbar-advanced-search {
+  opacity: 0;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 div[role='advanced-search'] {
