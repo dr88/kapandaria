@@ -50,10 +50,10 @@ body {
 .navbar-advanced-search {
   position: relative;
   opacity: 0;
-  -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 div[role='advanced-search'] {
@@ -63,10 +63,10 @@ div[role='advanced-search'] {
   margin-bottom: 4px;
   overflow: hidden;
 
-  -webkit-transition: all .4s ease;
-  -moz-transition: all .4s ease;
-  -o-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: all .4s linear;
+  -moz-transition: all .4s linear;
+  -o-transition: all .4s linear;
+  transition: all .4s linear;
 
   .form-group {
     width: 100%;
