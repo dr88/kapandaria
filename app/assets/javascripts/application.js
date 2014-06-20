@@ -12,6 +12,8 @@
 //
 //= require turbolinks
 //= require jquery
+//= require jquery.ui.core
+//= require jquery.ui.autocomplete
 //= require jquery_ujs
 //= require bootstrap-tag.min
 //= require devise
