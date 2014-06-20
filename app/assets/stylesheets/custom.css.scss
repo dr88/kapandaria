@@ -56,9 +56,10 @@ body {
 
 div[role='advanced-search'] {
   float: right;
-	margin-bottom: 4px;
-	.form-group {
-		width: 100%;
+	width: 100%;
+  margin-bottom: 4px;
+  .form-group {
+    width: 100%;
   }
 
   #women-only {
@@ -81,6 +82,12 @@ div[role='advanced-search'] {
 	font-weight: bold;
 	color: #019285;
 	font-size: 14px;	
+}
+
+.navbar-collapse {
+  &:before, &:after {
+    display: none;
+  }
 }
 
 .center {
