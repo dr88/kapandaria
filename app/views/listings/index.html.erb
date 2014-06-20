@@ -38,7 +38,7 @@
     <div class="form-group" id="locations">
       <% @locations.each do |location| %>
         <div class="location">
-          <%= check_box_tag location.name %><%= label_tag location.name %>
+          <%= check_box_tag location.name, '', true %><%= label_tag location.name %>
         </div>
       <% end %>
     </div>
