@@ -1,3 +1,6 @@
+<%= javascript_tag do %>
+  var location_names = <%= raw @locations.map(&:name).to_json %>;
+<% end %>
 
 <div class="navbar" role="navigation">
   
