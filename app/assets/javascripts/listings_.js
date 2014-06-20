@@ -32,6 +32,7 @@ function listingsReady() {
 	if (el) {
 		$('div[role=\'advanced-search\']')[0].remove();
 		$(el).appendTo('.navbar-advanced-search');
+		$(el).css("width", $(".nav.navbar-nav.navbar-right").width() + 7);
 	}
 
 	$("#show-advanced-search").on("click", function () {

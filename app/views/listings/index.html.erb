@@ -20,15 +20,11 @@
   </div>
 </div>
 <div class="navbar-form" role="advanced-search">
-  <div class="col-md-6"></div>
-  <div class="col-md-4">
-    <div class="form-group">
-      <%= text_field_tag 'location_names', nil, id: "form-field-tags" %>
+    <div class="form-group" id="women-only">
+      <%= check_box_tag 'women_only' %> <%= label_tag :women_only, "Include Women-Only" %>
     </div>
-  </div>
-  <div class="col-md-2">
-    <div class="form-group">
-      <%= check_box_tag 'women_only' %> <%= label_tag "Show women only?" %>
+    <div class="form-group" id="locations">
+      <%= text_field_tag 'location_names', nil, id: "form-field-tags" %>
     </div>
   </div>
 </div>
