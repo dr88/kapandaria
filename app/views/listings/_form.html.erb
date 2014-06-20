@@ -1,5 +1,5 @@
 <%= javascript_tag do %>
-  window.locations = <%= @locations.map(&:name) %>;
+  var location_names = <%= raw @locations.map(&:name).to_json %>;
 <% end %>
 
 <%= form_for(@listing,:html => { :multipart => true }) do |f| %>

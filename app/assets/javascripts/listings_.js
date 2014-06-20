@@ -11,7 +11,7 @@ function listingsReady() {
 	if (el.length) {
 		el.tag({
 			placeholder: "Enter new locations ...",
-			source: window.locations
+			source: location_names
 		});
 	}
 
