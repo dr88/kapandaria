@@ -77,6 +77,13 @@ function listingsReady() {
 	$(".tags input[type='text']").on("blur", doSearch);
 	$(document).on("click", ".tag .close", doSearch);
 	$("#women_only").on("change", doSearch);
+
+
+	// Upload button
+	$("#upload-button").on("change", function(e) {
+		var filename = $("#upload-button input").val();
+		$("#upload-filename")[0].innerHTML = filename.slice(filename.lastIndexOf('\\') + 1);
+	});
 };
 
 $(document).ready(listingsReady);

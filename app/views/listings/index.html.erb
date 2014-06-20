@@ -11,6 +11,15 @@
 
 </div>
 
+<section class="center sieve">
+  <%= render "listings" %>
+</section>
+
+<% if (user_signed_in?) %>
+  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data:{no_turbolink: true} %>
+<% end %>
+
+
 <div class="navbar-form" role="search">
   <div class="input-group">
     <%= text_field_tag "search-box", params['search'] || '', class: "form-control", placeholder: "Search" %>
@@ -28,13 +37,3 @@
     </div>
   </div>
 </div>
-
-<section class="center sieve">
-  <%= render "listings" %>
-</section>
-
-
-
-<% if (user_signed_in?) %>
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data:{no_turbolink: true} %>
-<% end %>
