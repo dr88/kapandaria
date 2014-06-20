@@ -55,8 +55,20 @@ function listingsReady() {
 	function doSearch () {
 		var prevQuery = query;
 
+		var locs = $(".location input").filter(function (i, loc) {
+			return loc.checked;
+		}).map(function (i, loc) {
+			return loc.name;
+		});
+
+		var locations = [];
+		for (var i = 0; i < locs.length; i++) {
+			locations.push(locs[i]);
+		}
+
+		console.log(locations);
 		query = "search=" + $("#search-box").val()
-		      + "&tags=" + $("#form-field-tags").val()
+		      + "&tags=" + locations.join(',')
 		      + ($("#women_only").is(":checked") ? "&women_only" : '');
 
 		if (query != prevQuery) {
@@ -72,9 +84,7 @@ function listingsReady() {
 	}
 
 	$("#search-box").on("input", delayedSearch);
-	$(".tags input[type='text']").on("keyup", delayedSearch);
-	$(".tags input[type='text']").on("focus", doSearch);
-	$(".tags input[type='text']").on("blur", doSearch);
+	$(".location input").on("change", doSearch);
 	$(document).on("click", ".tag .close", doSearch);
 	$("#women_only").on("change", doSearch);
 
