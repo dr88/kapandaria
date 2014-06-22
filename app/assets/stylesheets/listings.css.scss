@@ -1,3 +1,33 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#upload-button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    font-size: 100px;
+  }
+}
+
+#locations .location {
+  width: 32%;
+  display: inline-block;
+  white-space: nowrap;
+
+  label {
+    position: relative;
+    top: -2px;
+    font-weight: normal;
+
+    margin-left: 4px;
+    margin-right: 15px;
+  }
+}

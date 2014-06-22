@@ -16,9 +16,11 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "About", pages_about_path %></li>      
         <li><%= link_to "Contact", pages_contact_path %></li> 
-       </ul>
-       <ul class="nav navbar-nav navbar-right">
-         <li class="navbar-search"></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="navbar-search">
+          <div class="navbar-advanced-search"></div>
+        </li>
        <% if user_signed_in? %>
            <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.name%><b class="caret"></b></a>
@@ -43,6 +45,5 @@
        <!-- <ul class="nav navbar-nav navbar-right navbar-search"></ul> -->
 
     </div><!-- /.navbar-collapse -->
-    <div class="navbar-advanced-search"></div>
   </div><!-- /.container-fluid -->
 </nav>

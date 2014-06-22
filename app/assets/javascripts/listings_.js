@@ -11,7 +11,7 @@ function listingsReady() {
 	if (el.length) {
 		el.tag({
 			placeholder: "Enter new locations ...",
-			source: window.locations
+			source: location_names
 		});
 	}
 
@@ -25,7 +25,7 @@ function listingsReady() {
 	el = $('div[role=\'search\']')[0];
 	if (el) {
 		$('div[role=\'search\']')[0].remove();
-		$(el).appendTo('.navbar-search');
+		$(el).prependTo('.navbar-search');
 	}
 	// Moving the advanced search tools
 	el = $('div[role=\'advanced-search\']')[0];
@@ -34,16 +34,21 @@ function listingsReady() {
 		$(el).appendTo('.navbar-advanced-search');
 	}
 
+	var advSearchHeight = $('div[role=\'advanced-search\']').height();
 	$("#show-advanced-search").on("click", function () {
 		var icon = this.children[0]
 		if (icon.getAttribute("class") == "glyphicon glyphicon-chevron-down") {
 			// expand
-			$(".navbar-default").css("max-height", '406px');
-			icon.setAttribute("class", "glyphicon glyphicon-chevron-up")
+			$(".navbar-default").css("padding-bottom", 52 + advSearchHeight + 6);
+			$('div[role=\'advanced-search\']').css("height", advSearchHeight);
+			$(".navbar-advanced-search").css("opacity", 1);
+			icon.setAttribute("class", "glyphicon glyphicon-chevron-up");
 		} else {
 			// shrink
-			$(".navbar-default").css("max-height", '52px');
-			icon.setAttribute("class", "glyphicon glyphicon-chevron-down")
+			$(".navbar-default").css("padding-bottom", 0);
+			$('div[role=\'advanced-search\']').css("height", 0);
+			$(".navbar-advanced-search").css("opacity", 0);
+			icon.setAttribute("class", "glyphicon glyphicon-chevron-down");
 		}
 	});
 
@@ -53,8 +58,19 @@ function listingsReady() {
 	function doSearch () {
 		var prevQuery = query;
 
+		var locs = $(".location input").filter(function (i, loc) {
+			return loc.checked;
+		}).map(function (i, loc) {
+			return loc.name;
+		});
+
+		var locations = [];
+		for (var i = 0; i < locs.length; i++) {
+			locations.push(locs[i]);
+		}
+
 		query = "search=" + $("#search-box").val()
-		      + "&tags=" + $("#form-field-tags").val()
+		      + "&tags=" + locations.join(',')
 		      + ($("#women_only").is(":checked") ? "&women_only" : '');
 
 		if (query != prevQuery) {
@@ -66,14 +82,20 @@ function listingsReady() {
 	var timer;
 	function delayedSearch () {
 		clearTimeout(timer);
-		timer = setTimeout(doSearch, 1200);
+		timer = setTimeout(doSearch, 1000);
 	}
 
 	$("#search-box").on("input", delayedSearch);
-	$(".tags input[type='text']").on("input", delayedSearch);
-	$(".tags input[type='text']").on("blur", doSearch);
+	$(".location input").on("change", doSearch);
 	$(document).on("click", ".tag .close", doSearch);
 	$("#women_only").on("change", doSearch);
+
+
+	// Upload button
+	$("#upload-button").on("change", function(e) {
+		var filename = $("#upload-button input").val();
+		$("#upload-filename")[0].innerHTML = filename.slice(filename.lastIndexOf('\\') + 1);
+	});
 };
 
 $(document).ready(listingsReady);

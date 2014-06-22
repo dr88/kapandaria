@@ -1,3 +1,6 @@
+<%= javascript_tag do %>
+  var location_names = <%= raw @locations.map(&:name).to_json %>;
+<% end %>
 
 <div class="navbar" role="navigation">
   
@@ -11,6 +14,15 @@
 
 </div>
 
+<section class="center sieve">
+  <%= render "listings" %>
+</section>
+
+<% if (user_signed_in?) %>
+  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data:{no_turbolink: true} %>
+<% end %>
+
+
 <div class="navbar-form" role="search">
   <div class="input-group">
     <%= text_field_tag "search-box", params['search'] || '', class: "form-control", placeholder: "Search" %>
@@ -20,25 +32,15 @@
   </div>
 </div>
 <div class="navbar-form" role="advanced-search">
-  <div class="col-md-6"></div>
-  <div class="col-md-4">
-    <div class="form-group">
-      <%= text_field_tag 'location_names', nil, id: "form-field-tags" %>
+    <div class="form-group" id="women-only">
+      <%= check_box_tag 'women_only' %> <%= label_tag :women_only, "Include Women-Only" %>
     </div>
-  </div>
-  <div class="col-md-2">
-    <div class="form-group">
-      <%= check_box_tag 'women_only' %> <%= label_tag "Show women only?" %>
+    <div class="form-group" id="locations">
+      <% @locations.each do |location| %>
+        <div class="location">
+          <%= check_box_tag location.name, '', true %><%= label_tag location.name %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-<section class="center sieve">
-  <%= render "listings" %>
-</section>
-
-
-
-<% if (user_signed_in?) %>
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data:{no_turbolink: true} %>
-<% end %>
