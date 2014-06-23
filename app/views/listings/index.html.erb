@@ -36,7 +36,11 @@
       <%= check_box_tag 'women_only' %> <%= label_tag :women_only, "Include Women-Only" %>
     </div>
     <div class="form-group" id="locations">
-      <%= text_field_tag 'location_names', nil, id: "form-field-tags" %>
+      <% @locations.each do |location| %>
+        <div class="location">
+          <%= check_box_tag location.name, '', true %><%= label_tag location.name %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
