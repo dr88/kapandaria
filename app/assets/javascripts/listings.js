@@ -1,4 +1,29 @@
+var listing = {
+	setupForm: function () {
+		$("#new_listing").submit(function () {
+			if ($("#routing_number")[0]) {
+				$("input[type='submit']").attr("disabled", true);
+				Stripe.bankAccount.createToken($('#new_listing'), listing.handleStripeResponse);
+				return false;
+			}
+		});
+	},
+	handleStripeResponse: function (status, response) {
+		if (status == 200) {
+			$('#new_listing').append($('<input type = "hidden" name ="stripeToken" />').val(response.id));
+			$('#new_listing')[0].submit();
+		} else {
+			$('#stripe_error').text(response.error.message).show();
+			$('input[type="submit"]').attr('disabled',false);
+		}
+	}
+};
+
 function listingsReady() {
+	// Setting up Stripe
+	Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+	listing.setupForm();
+
 	// Change background of listings when hovering
 	$('.thumbnail').hover(
 		function() {

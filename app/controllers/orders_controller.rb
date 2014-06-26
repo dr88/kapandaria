@@ -17,49 +17,26 @@ class OrdersController < ApplicationController
     @listing = Listing.find(params[:listing_id])
   end
 
-
   # POST /orders
   # POST /orders.json
   def create
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
-    @seller = @listing.user
 
-    @order.listing_id = @listing.id
-    @order.buyer_id = current_user.id
-    @order.seller_id = @seller.id
-
-    @order.qty = 1 if @order.qty.nil?
-    @order.qty = 1 if @order.qty < 1
-    @order.qty = 20 if @order.qty > 20
-
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripeToken]
-
-    # the following code charges the card
-    begin
-      charge = Stripe::Charge.create(
-        :amount => (@listing.price * @order.qty * 100).floor,
-        :currency => "usd",
-        :card => token
-        )
-      flash[:notice] = "Thanks for ordering!"
-    rescue Stripe::CardError => e
-      flash[:danger] = e.message
-    end  
-
-    #initiate transfer to seller
-    transfer = Stripe::Transfer.create(
-      :amount => (@listing.price * 95).floor,
-      :currency => "usd",
-      :recipient => @seller.recipient
-      )
+    @order.set_charge_params({
+      token: params[:stripeToken],
+      listing: @listing,
+      seller: @listing.user,
+      buyer: current_user
+    })
 
     respond_to do |format|
       if @order.save
+        flash[:notice] = @order.flash_message
         format.html { redirect_to root_url}
         format.json { render :show, status: :created, location: @order }
       else
+        flash[:danger] = @order.flash_message
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end

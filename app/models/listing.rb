@@ -11,7 +11,7 @@ class Listing < ActiveRecord::Base
 	do_not_validate_attachment_file_type :image
 	validates :name, :description, :price, presence: true
 	validates :price, numericality: {greater_than: 0}
-	# validates_attachment_presence :image
+	validates_attachment_presence :image
 
 	belongs_to :user
 	has_many :orders
@@ -25,7 +25,7 @@ class Listing < ActiveRecord::Base
 		unless query.empty?
 			listings = all
 			listings = listings.where(women_only: false) unless query.has_key? :women_only
-			listings = listings.where("LOWER(listings.name) LIKE :name", name: "#{query[:search].downcase}%") unless query[:search].blank?
+			listings = listings.where("LOWER(listings.name) LIKE :name", name: "%#{query[:search].downcase}%") unless query[:search].blank?
 			listings = listings.joins(:locations).where("LOWER(locations.name) IN (:tags)", tags: query[:tags].downcase.split(',')) unless query[:tags].blank?
 			listings.uniq
 		else
