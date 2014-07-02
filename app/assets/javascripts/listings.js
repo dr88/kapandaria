@@ -19,6 +19,12 @@ var listing = {
 	}
 };
 
+resizeThumbnails = function() {
+	var size = $(".thumbnail").width();
+	$(".thumbnail .thumb-image").width(size);
+	$(".thumbnail .thumb-image").height(size);
+}
+
 function listingsReady() {
 	// Setting up Stripe
 	Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
@@ -121,6 +127,13 @@ function listingsReady() {
 		var filename = $("#upload-button input").val();
 		$("#upload-filename")[0].innerHTML = filename.slice(filename.lastIndexOf('\\') + 1);
 	});
+
+
+	// making index image into square
+	if ($(".thumb-image")[0]) {
+		window.addEventListener('resize', resizeThumbnails);
+		resizeThumbnails();
+	}
 };
 
 $(document).ready(listingsReady);
