@@ -106,7 +106,7 @@ function listingsReady() {
 
 		if (query != prevQuery) {
 			uri = location.protocol + '//' + location.host + location.pathname + '?' + query;
-			$.getScript(uri);
+			$.getScript(uri, function() { resizeThumbnails() });
 		}
 	}
 
