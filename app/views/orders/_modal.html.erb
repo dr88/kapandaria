@@ -1,0 +1,59 @@
+<div class="image">
+  <div>
+    <%= image_tag(Rails.cache.fetch("listing#{@order.listing_id}_image_url") {listing.image.url}) %>
+  </div>
+
+  <div>
+    <span>Order Number: </span>
+    <span><%= @order.id %></span>
+  </div>
+
+  <div>
+    <span>Order Date: </span>
+    <span><%= @order.created_at %></span>
+  </div>
+  <div>
+    <span>Buyer Number: </span>
+    <span><%= @order.buyer_id %></span>
+  </div>
+  <div><%= @order.buyer.name %></div>
+  <!-- @order.address -->
+  <!-- @order.city --> <!-- @order.state -->
+  <div><%= @order.buyer.email %></div>
+
+  <div>
+    <span>Product Id: </span>
+    <span><%= @order.listing_id %></span>
+  </div>
+  <div>
+    <span>Product Name: </span>
+    <span><%= @order.listing.name %></span>
+  </div>
+  <div>
+    <span>Product Description: </span>
+    <span><%= @order.listing.description %></span>
+  </div>
+
+  <div>
+    <span>Unit Price: </span>
+    <span>$<%= '%.2f' % @order.listing.price %></span>
+  </div>
+  <div>
+    <span>Quantity: </span>
+    <span><%= @order.qty %></span>
+  </div>
+  <div>
+    <span>Total Price: </span>
+    <span>$<%= '%.2f' % (@order.listing.price * @order.qty) %></span>
+  </div>
+  <div>
+    <span>Buyer Number: </span>
+    <span><%= @order.buyer_id %></span>
+  </div>
+  <div>
+    <span>Instructions: </span>
+    <span><%= @order.instructions %></span>
+  </div>
+
+
+</div>

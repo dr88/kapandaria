@@ -1,3 +1,13 @@
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="orderModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <div class="modal-wrapper"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class = "center">
   <h2>My Sales</h2>
@@ -19,14 +29,14 @@
   </tr>
 
 <% @orders.each do |order| %>
-  <tr>
+  <%= content_tag(:tr, {class: "order", id: order.id.to_s}, true) do%>
     <td><%= image_tag order.listing.image.url(:thumb) %></td>  
     <td><%= order.listing.name %></td>
     <td><%= number_to_currency(order.listing.price) %></td>
     <td><%= order.qty %></td>
     <td><%= order.buyer.name %></td>    
     <td><%= relative_time(order.created_at) %></td>
-  </tr>
+  <% end %>
 <% end %>
 </table>
 
