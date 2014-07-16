@@ -2,7 +2,7 @@
 	<div class = "col-md-4">
 		<div class="thumbnail">
 			<div class="thumb-image">
-				<%= image_tag @listing.image.url %>
+				<%= image_tag(Rails.cache.fetch("listing#{@listing.id}_image_url") {@listing.image.url}) %>
 			</div>
 		</div>
 	</div>

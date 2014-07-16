@@ -1,6 +1,6 @@
 <div class="image">
   <div>
-    <%= image_tag(Rails.cache.fetch("listing#{@order.listing_id}_image_url") {listing.image.url}) %>
+    <%= image_tag(Rails.cache.fetch("listing#{@order.listing_id}_image_url") {@order.listing.image.url}) %>
   </div>
 
   <div>
