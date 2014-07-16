@@ -30,7 +30,13 @@
 
 <% @orders.each do |order| %>
   <%= content_tag(:tr, {class: "order", id: order.id.to_s}, true) do%>
-    <td><%= image_tag(Rails.cache.fetch("listing#{order.listing_id}_image_url") {order.listing.image.url}) %></td>  
+    <td>
+      <div class="thumbnail">
+        <div class="thumb-image thumb-orders">
+          <%= image_tag(Rails.cache.fetch("listing#{order.listing_id}_image_url") {order.listing.image.url}) %>
+        </div>
+      </div>
+    </td>  
     <td><%= order.listing.name %></td>
     <td><%= number_to_currency(order.listing.price) %></td>
     <td><%= order.qty %></td>
