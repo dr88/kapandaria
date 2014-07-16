@@ -6,3 +6,24 @@ tr.order {
   cursor: pointer;
   cursor: hand;
 }
+
+.modal-wrapper {
+  div, td {
+    font-size: 1.1em;
+    padding-bottom: 6px;
+  }
+  .modal-label {
+    padding-right: 4px;
+  }
+
+  .footnote {
+    padding-left: 18px;
+  }
+}
+
+.modal-wrapper .image div img {
+  float: left;
+  width: 172px;
+  height: auto;
+  margin-right: 12px;
+}
