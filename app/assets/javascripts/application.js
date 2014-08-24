@@ -19,6 +19,7 @@
 //= require devise
 //= require orders
 //= require listings
+//= require classifieds
 //= require jquery.sieve
 //= require bootstrap
 //= require_tree .
