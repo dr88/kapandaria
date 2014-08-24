@@ -2,6 +2,10 @@ class ClassifiedsController < ApplicationController
   before_action :set_classified, only: [:edit, :update]
 
   def index
+    @classifieds = Classified.all
+  end
+
+  def modify
     @classifieds = Classified.where(user: current_user)
   end
 
@@ -14,7 +18,7 @@ class ClassifiedsController < ApplicationController
 
     respond_to do |format|
       if @classified.save
-        format.html { redirect_to :classifieds, notice: 'Classified was successfully created.' }
+        format.html { redirect_to :classifieds_my, notice: 'Classified was successfully created.' }
         format.json { render :index, status: :created, location: @classified }
       else
         format.html { render :place }
@@ -29,7 +33,7 @@ class ClassifiedsController < ApplicationController
   def update
     respond_to do |format|
       if @classified.update(classified_params)
-        format.html { redirect_to :classifieds, notice: 'Classified was successfully updated.' }
+        format.html { redirect_to :classifieds_my, notice: 'Classified was successfully updated.' }
         format.json { render :show, status: :ok, location: @classified }
       else
         format.html { render :modify }

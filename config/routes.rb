@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'classifieds/my' => "classifieds#modify"
   resources :classifieds
 
   resources :locations

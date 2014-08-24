@@ -1,14 +1,19 @@
 <div class="navbar" role="navigation">
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <div class="col-md-6 pull-left">
-      <p id="bar-title">Classifieds</p>
+      <p id="bar-title">My Classifieds</p>
     </div>
   </div>
+</div>
+
+<div class="classified-place">
+  <%= link_to "Place Classified", new_classified_path, class: "btn btn-primary" %>
 </div>
 
 <div class="row">
 <% @classifieds.each do |classified| %>
   <div class="col-lg-3">
+    <div class="classified-modify"><%= link_to "Modify", [:edit, classified] %></div>
     <div class="classified-item">
       <div class="classified-head">
         <%= classified.title %>
