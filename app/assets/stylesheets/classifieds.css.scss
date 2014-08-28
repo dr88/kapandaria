@@ -10,30 +10,37 @@
 }
 
 .classified-item {
-  float: left;
   width: 275px;
-  min-height: 160px;
+  height: 176px;
   border: 3px solid #000;
   border-radius: 12px;
   font-family: Arial;
   text-align: center;
+  margin-right: 18px;
+  margin-bottom: 18px;
 }
 
 .classified-head {
   float: left;
-  padding: 5px 0px 10px;
+  padding: 10px 0px 10px;
   width: 100%;
-  height: 25px;
+  height: 40px;
   background: #000;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
 }
 
+.classified-body {
+  height: 78px;
+  overflow-y: auto;
+}
+
 .classified-content {
   float: left;
   padding-top: 2px;
   width: 100%;
+  font-family: Arial;
 
   .classified-title {
     font-style: italic;
@@ -42,6 +49,8 @@
   }
 
   .classified-body, .classified-last-line {
+    font-family: Arial;
+    font-size: 16px;
     margin: 0;
   }
 }
