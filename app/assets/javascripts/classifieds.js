@@ -5,13 +5,6 @@ function classifiedReady() {
     }
   );
 
-  // Moving the search box
-  el = $('div[role=\'classified-search\']')[0];
-  if (el) {
-    $('div[role=\'classified-search\']')[0].remove();
-    $(el).prependTo('.navbar-search');
-  }
-
   // Search
   var query = location.search.replace( "?", "" );
   function doClassSearch () {

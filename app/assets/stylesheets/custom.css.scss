@@ -149,7 +149,12 @@ div[role='advanced-search'] {
   font-size: 24px;
 }
 
-#search-box, #classified-search-box {
+#search-box {
   max-width: 220px;
+  font-size: 20px;
+}
+
+#classified-search-box {
+  max-width: 300px;
   font-size: 20px;
 }
