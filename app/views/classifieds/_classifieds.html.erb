@@ -1,0 +1,16 @@
+<div class="row">
+  <% @classifieds.each do |classified| %>
+    <div class="col-lg-3">
+      <div class="classified-item">
+        <div class="classified-head">
+          <%= classified.title %>
+        </div>
+        <div class="classified-content">
+          <p class="classified-title"><%= classified.location %></p>
+          <p class="classified-body"><%= classified.body %></p>
+          <p class="classified-last-line"><b><%= classified.last_line %></b></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

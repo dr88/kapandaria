@@ -6,19 +6,15 @@
   </div>
 </div>
 
-<div class="row">
-<% @classifieds.each do |classified| %>
-  <div class="col-lg-3">
-    <div class="classified-item">
-      <div class="classified-head">
-        <%= classified.title %>
-      </div>
-      <div class="classified-content">
-        <p class="classified-title"><%= classified.location %></p>
-        <p class="classified-body"><%= classified.body %></p>
-        <p class="classified-last-line"><b><%= classified.last_line %></b></p>
-      </div>
+<div class="classifieds-list">
+  <%= render "classifieds" %>
+</div>
+
+<div class="navbar-form" role="classified-search">
+  <div class="input-group">
+    <%= text_field_tag "classified-search-box", params['search'] || '', class: "form-control", placeholder: "Search" %>
+    <div class="input-group-btn">
+      <button id="submit-classified-search" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
     </div>
   </div>
-<% end %>
 </div>

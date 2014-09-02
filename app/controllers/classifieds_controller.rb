@@ -2,7 +2,7 @@ class ClassifiedsController < ApplicationController
   before_action :set_classified, only: [:edit, :update]
 
   def index
-    @classifieds = Classified.all
+    @classifieds = Classified.search(params[:search]).order("created_at DESC")
   end
 
   def modify
