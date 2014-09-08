@@ -52,33 +52,15 @@ function listingsReady() {
 		return true;
 	});
 
-	// Moving the search box
-	el = $('div[role=\'search\']')[0];
-	if (el) {
-		$('div[role=\'search\']')[0].remove();
-		$(el).prependTo('.navbar-search');
-	}
-	// Moving the advanced search tools
-	el = $('div[role=\'advanced-search\']')[0];
-	if (el) {
-		$('div[role=\'advanced-search\']')[0].remove();
-		$(el).appendTo('.navbar-advanced-search');
-	}
-
-	var advSearchHeight = $('div[role=\'advanced-search\']').height();
 	$("#show-advanced-search").on("click", function () {
 		var icon = this.children[0]
 		if (icon.getAttribute("class") == "glyphicon glyphicon-chevron-down") {
 			// expand
-			$(".navbar-default").css("padding-bottom", 52 + advSearchHeight + 6);
-			$('div[role=\'advanced-search\']').css("height", advSearchHeight);
-			$(".navbar-advanced-search").css("opacity", 1);
+			$('div[role=\'advanced-search\']').css("max-height", 400);
 			icon.setAttribute("class", "glyphicon glyphicon-chevron-up");
 		} else {
 			// shrink
-			$(".navbar-default").css("padding-bottom", 0);
-			$('div[role=\'advanced-search\']').css("height", 0);
-			$(".navbar-advanced-search").css("opacity", 0);
+			$('div[role=\'advanced-search\']').css("max-height", 0);
 			icon.setAttribute("class", "glyphicon glyphicon-chevron-down");
 		}
 	});

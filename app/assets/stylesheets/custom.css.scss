@@ -13,6 +13,11 @@
 
 
 
+html {
+  overflow-y: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
 body {
 	background-color:#F5F5F1;
 	color: #333333;
@@ -56,9 +61,12 @@ body {
   transition: all .3s ease;
 }
 
+div[role='search'] {
+  padding-bottom: 20px;
+}
+
 div[role='advanced-search'] {
-  position: absolute;
-  float: right;
+  max-height: 0;
   width: 420px;
   margin-bottom: 4px;
   overflow: hidden;
@@ -149,12 +157,7 @@ div[role='advanced-search'] {
   font-size: 24px;
 }
 
-#search-box {
-  max-width: 220px;
-  font-size: 20px;
-}
-
-#classified-search-box {
+#search-box, #classified-search-box {
   max-width: 300px;
   font-size: 20px;
 }
