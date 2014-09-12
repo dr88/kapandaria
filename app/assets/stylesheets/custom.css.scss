@@ -51,6 +51,9 @@ body {
   }
 }
 
+.navbar-form {
+  margin-left: -46px;
+}
 
 .navbar-advanced-search {
   position: relative;
@@ -67,7 +70,7 @@ div[role='search'] {
 
 div[role='advanced-search'] {
   max-height: 0;
-  width: 420px;
+  width: 585px;
   margin-bottom: 4px;
   overflow: hidden;
 
@@ -158,7 +161,7 @@ div[role='advanced-search'] {
 }
 
 #search-box, #classified-search-box {
-  max-width: 300px;
+  width: 516px;
   font-size: 20px;
 }
 
