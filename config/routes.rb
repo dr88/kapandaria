@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'classifieds/my' => "classifieds#modify"
   resources :classifieds
 
+  get 'gemachs/my' => "gemachs#modify"
+  resources :gemachs
+
   resources :locations
 
   devise_for :users

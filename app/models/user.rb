@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   has_many :sales, class_name: "Order", foreign_key:"seller_id"
   has_many :purchases, class_name: "Order", foreign_key:"buyer_id"
   has_many :classifieds
+  has_many :gemachs
 end

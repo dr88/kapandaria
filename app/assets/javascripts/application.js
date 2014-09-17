@@ -20,6 +20,7 @@
 //= require orders
 //= require listings
 //= require classifieds
+//= require gemachs
 //= require jquery.sieve
 //= require bootstrap
 //= require_tree .
