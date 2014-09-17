@@ -1,0 +1,66 @@
+<div class="image">
+  <div>
+    <%= image_tag(Rails.cache.fetch("listing#{@order.listing_id}_image_url") {@order.listing.image.url}) %>
+  </div>
+
+  <table>
+    <tr>
+      <td class="modal-label">Order Number:</td>
+      <td><%= @order.id %></td>
+    </tr>
+    <tr>
+      <td class="modal-label">Order Date:</td>
+      <td><%= @order.created_at %></td>
+    </tr>
+    <tr>
+      <td class="modal-label">Buyer Number:</td>
+      <td><%= @order.buyer_id %></td>
+    </tr>
+  </table>
+  
+  <div><%= @order.buyer.name %></div>
+  <div><%= @order.address %></div>
+  <div><%= @order.city %>, <%= @order.state %></div>
+  <div><%= @order.buyer.email %></div>
+
+  <br/>
+
+  <table>
+    <tr>
+      <td class="modal-label">Product Id:</td>
+      <td><%= @order.listing_id %></td>
+    </tr>
+    <tr>
+      <td class="modal-label">Product Name:</td>
+      <td><%= @order.listing.name %></td>
+    </tr>
+  </table>
+  
+  <div>Product Description:</div>
+  <div class="footnote"><%= @order.listing.description %></div>
+
+  <br/>
+
+  <table>
+    <tr>
+      <td class="modal-label">Unit Price:</td>
+      <td>$<%= '%.2f' % @order.listing.price %></td>
+    </tr>
+    <tr>
+      <td class="modal-label">Quantity:</td>
+      <td><%= @order.qty %></td>
+    </tr>
+    <tr>
+      <td class="modal-label">Total Price:</td>
+      <td>$<%= '%.2f' % (@order.listing.price * @order.qty) %></td>
+    </tr>
+    <tr>
+      <td class="modal-label">Buyer Number:</td>
+      <td><%= @order.buyer_id %></td>
+    </tr>
+  </table>
+  
+  <div class="modal-label">Instructions:</div>
+  <div class="footnote"><%= @order.instructions %></div>
+
+</div>

@@ -1,0 +1,64 @@
+// Place all the styles related to the Classifieds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.classified-place {
+  width: 100%;
+  text-align: right;
+  margin-top: -34px;
+  margin-bottom: 16px;
+}
+
+.classified-item {
+  width: 275px;
+  height: 176px;
+  border: 3px solid #000;
+  border-radius: 12px;
+  font-family: Arial;
+  text-align: center;
+  margin-right: 18px;
+  margin-bottom: 18px;
+}
+
+.classified-head {
+  float: left;
+  padding: 10px 0px 10px;
+  width: 100%;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.classified-body {
+  height: 78px;
+  overflow-y: auto;
+}
+
+.classified-content {
+  float: left;
+  padding-top: 2px;
+  width: 100%;
+  font-family: Arial;
+
+  .classified-title {
+    font-style: italic;
+    font-size: 12px;
+    margin: 4px
+  }
+
+  .classified-body, .classified-last-line {
+    font-family: Arial;
+    font-size: 15px;
+    margin: 0;
+  }
+}
+
+.classified-modify {
+  text-align: right;
+}
+
+div[role='classified-search'] {
+  padding-bottom: 30px;
+}

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'classifieds/my' => "classifieds#modify"
+  resources :classifieds
+
+  get 'gemachs/my' => "gemachs#modify"
+  resources :gemachs
 
   resources :locations
 
@@ -13,6 +18,8 @@ Rails.application.routes.draw do
   get 'seller' => "listings#seller"
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
+
+  get 'order/:id' => "orders#show"
 
   root 'listings#index'
 

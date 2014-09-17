@@ -1,3 +1,35 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+tr.order {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.modal-wrapper {
+  div, td {
+    font-size: 1.1em;
+    padding-bottom: 6px;
+  }
+  .modal-label {
+    padding-right: 4px;
+  }
+
+  .footnote {
+    padding-left: 18px;
+  }
+}
+
+.modal-wrapper .image div img {
+  float: left;
+  width: 172px;
+  height: auto;
+  margin-right: 12px;
+}
+
+.thumb-orders {
+  margin: auto;
+  width: 200px !important;
+  height: 200px !important;
+}

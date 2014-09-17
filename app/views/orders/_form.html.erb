@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-4">
     <div class="thumbnail">
-      <%= image_tag @listing.image.url %>
+      <div class="thumb-image">
+        <%= image_tag(Rails.cache.fetch("listing#{@listing.id}_image_url") {@listing.image.url}) %>
+      </div>
     </div>
     <div id="price-name-wide">
       <h3><%= @listing.name %></h3>

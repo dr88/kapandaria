@@ -14,35 +14,38 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "About", pages_about_path %></li>      
-        <li><%= link_to "Contact", pages_contact_path %></li> 
+        <li><%= link_to "About", pages_about_path %></li>
+        <li><%= link_to "Contact", pages_contact_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-search">
-          <div class="navbar-advanced-search"></div>
-        </li>
+      <li><%= link_to "Marketplace", root_path %></li>
+      <li><%= link_to "Classifieds", classifieds_path %></li>
+      <li><%= link_to "Gemachs", gemachs_path %></li>
        <% if user_signed_in? %>
            <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.name%><b class="caret"></b></a>
             <ul class="dropdown-menu">
-      <% if user_is_a_seller? %>            
+      <% if user_is_a_seller? %>
               <li><%=link_to "My Sales",sales_path %></li>
               <li><%= link_to "My Listings", seller_path %></li>
-              <li class="divider"></li>  
-      <% end %>
-              <li><%=link_to "My Purchases",purchases_path %></li>     
               <li class="divider"></li>
-              <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
-              <li class="divider"></li>              
-              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>                
+      <% end %>
+              <li><%=link_to "My Purchases",purchases_path %></li>
+              <li class="divider"></li>
+              <li><%=link_to "My Classifieds", classifieds_my_path %></li>
+              <li class="divider"></li>
+              <li><%=link_to "My Gemachs", gemachs_my_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             </ul>
-          </li>           
-        <% else %>                  
-          <li><%= link_to "Register", new_user_registration_path %></li>    
-          <li><%= link_to "Log In", new_user_session_path %></li>           
+          </li>
+        <% else %>
+          <li><%= link_to "Register", new_user_registration_path %></li>
+          <li><%= link_to "Log In", new_user_session_path %></li>
         <% end %>
       </ul>
-       <!-- <ul class="nav navbar-nav navbar-right navbar-search"></ul> -->
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

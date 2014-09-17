@@ -13,6 +13,11 @@
 
 
 
+html {
+  overflow-y: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
 body {
 	background-color:#F5F5F1;
 	color: #333333;
@@ -21,7 +26,7 @@ body {
 
 .navbar-default {
 	background-color:#F8F8F5;
-  margin-bottom: 35px;
+  margin-bottom: 51px;
 	max-height: 52px;
   -webkit-transition: all .3s linear;
   -moz-transition: all .3s linear;
@@ -46,6 +51,9 @@ body {
   }
 }
 
+.navbar-form {
+  margin-left: -46px;
+}
 
 .navbar-advanced-search {
   position: relative;
@@ -56,10 +64,13 @@ body {
   transition: all .3s ease;
 }
 
+div[role='search'] {
+  padding-bottom: 20px;
+}
+
 div[role='advanced-search'] {
-  position: absolute;
-  float: right;
-  width: 420px;
+  max-height: 0;
+  width: 585px;
   margin-bottom: 4px;
   overflow: hidden;
 
@@ -81,7 +92,7 @@ div[role='advanced-search'] {
   }
 }
 
-.navbar-default .navbar-brand { 
+.navbar-default .navbar-brand {
 	font-family: guardian-egyptt, georgia, serif;
 	font-weight: 400;
 	color: #D5641C;
@@ -92,7 +103,7 @@ div[role='advanced-search'] {
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	color: #019285;
-	font-size: 14px;	
+	font-size: 14px;
 }
 
 .navbar-collapse {
@@ -112,7 +123,7 @@ div[role='advanced-search'] {
 .col-md-4 {
 	h3 {font-size: 36px;}
 	h5 {font-size: 22px;}
-	p {font-size: 18px;}		
+	p {font-size: 18px;}
 }
 
 .caption {
@@ -126,17 +137,34 @@ div[role='advanced-search'] {
 	}
 }
 
-.thumbnail {
+.thumbnail .thumb-image {
+  position: relative;
+  overflow: hidden;
 
+  img {
+    position: absolute;
+    top: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    margin: auto;
+
+    max-width: none;
+    height: 100%;
+  }
 }
 
 #bar-title {
-	color: #104571;
-	font-family: guardian-egyptt, georgia, serif;
-	font-size: 24px;
+  color: #104571;
+  font-family: guardian-egyptt, georgia, serif;
+  font-size: 24px;
 }
 
-#search-box {
-	width: 350px;
-	font-size: 20px;
+#search-box, #classified-search-box, #gemach-search-box {
+  width: 516px;
+  font-size: 20px;
+}
+
+a.btn-primary {
+  color: white !important;
 }

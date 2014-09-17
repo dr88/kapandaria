@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610042018) do
+ActiveRecord::Schema.define(version: 20140917183122) do
+
+  create_table "classifieds", force: true do |t|
+    t.string   "title"
+    t.string   "location"
+    t.text     "body"
+    t.string   "last_line"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "classifieds", ["user_id"], name: "index_classifieds_on_user_id"
+
+  create_table "gemachs", force: true do |t|
+    t.string   "title"
+    t.string   "location"
+    t.text     "body"
+    t.string   "last_line"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gemachs", ["user_id"], name: "index_gemachs_on_user_id"
 
   create_table "listings", force: true do |t|
     t.string   "name"

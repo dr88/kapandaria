@@ -19,6 +19,12 @@ var listing = {
 	}
 };
 
+resizeThumbnails = function() {
+	var size = $(".thumbnail").width();
+	$(".thumbnail .thumb-image").width(size);
+	$(".thumbnail .thumb-image").height(size);
+}
+
 function listingsReady() {
 	// Setting up Stripe
 	Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
@@ -46,33 +52,15 @@ function listingsReady() {
 		return true;
 	});
 
-	// Moving the search box
-	el = $('div[role=\'search\']')[0];
-	if (el) {
-		$('div[role=\'search\']')[0].remove();
-		$(el).prependTo('.navbar-search');
-	}
-	// Moving the advanced search tools
-	el = $('div[role=\'advanced-search\']')[0];
-	if (el) {
-		$('div[role=\'advanced-search\']')[0].remove();
-		$(el).appendTo('.navbar-advanced-search');
-	}
-
-	var advSearchHeight = $('div[role=\'advanced-search\']').height();
 	$("#show-advanced-search").on("click", function () {
 		var icon = this.children[0]
 		if (icon.getAttribute("class") == "glyphicon glyphicon-chevron-down") {
 			// expand
-			$(".navbar-default").css("padding-bottom", 52 + advSearchHeight + 6);
-			$('div[role=\'advanced-search\']').css("height", advSearchHeight);
-			$(".navbar-advanced-search").css("opacity", 1);
+			$('div[role=\'advanced-search\']').css("max-height", 400);
 			icon.setAttribute("class", "glyphicon glyphicon-chevron-up");
 		} else {
 			// shrink
-			$(".navbar-default").css("padding-bottom", 0);
-			$('div[role=\'advanced-search\']').css("height", 0);
-			$(".navbar-advanced-search").css("opacity", 0);
+			$('div[role=\'advanced-search\']').css("max-height", 0);
 			icon.setAttribute("class", "glyphicon glyphicon-chevron-down");
 		}
 	});
@@ -100,7 +88,8 @@ function listingsReady() {
 
 		if (query != prevQuery) {
 			uri = location.protocol + '//' + location.host + location.pathname + '?' + query;
-			$.getScript(uri);
+			console.log(uri);
+			$.getScript(uri, function() { resizeThumbnails() });
 		}
 	}
 
@@ -121,6 +110,13 @@ function listingsReady() {
 		var filename = $("#upload-button input").val();
 		$("#upload-filename")[0].innerHTML = filename.slice(filename.lastIndexOf('\\') + 1);
 	});
+
+
+	// making index image into square
+	if ($(".thumb-image")[0]) {
+		window.addEventListener('resize', resizeThumbnails);
+		resizeThumbnails();
+	}
 };
 
 $(document).ready(listingsReady);

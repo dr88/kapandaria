@@ -1,0 +1,16 @@
+<div class="row">
+  <% @gemachs.each do |gemach| %>
+    <div class="col-lg-3">
+      <div class="gemach-item">
+        <div class="gemach-head">
+          <%= gemach.title %>
+        </div>
+        <div class="gemach-content">
+          <p class="gemach-title"><%= gemach.location %></p>
+          <p class="gemach-body"><%= gemach.body %></p>
+          <p class="gemach-last-line"><b><%= gemach.last_line %></b></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,63 @@
+// Place all the styles related to the Gemachs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gemach-place {
+  width: 100%;
+  text-align: right;
+  margin-top: -34px;
+  margin-bottom: 16px;
+}
+
+.gemach-item {
+  width: 275px;
+  height: 176px;
+  border: 3px solid #033;
+  font-family: Arial;
+  text-align: center;
+  margin-right: 18px;
+  margin-bottom: 18px;
+}
+
+.gemach-head {
+  float: left;
+  padding: 10px 0px 10px;
+  width: 100%;
+  height: 40px;
+  background: #033;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.gemach-body {
+  height: 78px;
+  overflow-y: auto;
+}
+
+.gemach-content {
+  float: left;
+  padding-top: 2px;
+  width: 100%;
+  font-family: Arial;
+
+  .gemach-title {
+    font-style: italic;
+    font-size: 12px;
+    margin: 4px
+  }
+
+  .gemach-body, .gemach-last-line {
+    font-family: Arial;
+    font-size: 15px;
+    margin: 0;
+  }
+}
+
+.gemach-modify {
+  text-align: right;
+}
+
+div[role='gemach-search'] {
+  padding-bottom: 30px;
+}

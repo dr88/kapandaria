@@ -45,6 +45,19 @@ function ordersReady() {
     if (Number(this.value) < 1)  this.value = '1';
     if (Number(this.value) > 20) this.value = '20';
   });
+
+  $("tr.order").on("click", function() {
+    var id = this.id;
+    $.ajax({
+      url: "/order/" + id,
+      type: "GET",
+      success: function (data) {
+        console.log(data);
+        $(".modal-wrapper")[0].innerHTML = data;
+        $(".modal").modal({show: true});
+      }
+    });
+  });
 }
 
 $(document).ready(ordersReady);
